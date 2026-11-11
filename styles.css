@@ -1,0 +1,320 @@
+/* STUDENT SHOWCASE 2026 — CSS only */
+/* Original HTML structure and Python logic are kept. */
+
+
+/* Student Showcase 2026 - Backgrounds */
+
+/* Homepage - Ice Blue */
+body:has([py-click="view_member"]) {
+    background: linear-gradient(135deg, #f0f8ff, #ddebf8) !important;
+}
+
+/* School Club Members - Soft Mint */
+body:has([py-click="add_member"]) {
+    background: linear-gradient(135deg, #f0fbf6, #d9f1e6) !important;
+}
+
+/* Element Checker - Light Lavender */
+body:has([py-click="check_element"]) {
+    background: linear-gradient(135deg, #f8f5ff, #e7defa) !important;
+}
+
+/* Meet the Creator - Blush Pink */
+body:has(title):not(:has([py-click])) {
+    background: linear-gradient(135deg, #fff7fa, #f5deea) !important;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #eef5fb !important;
+    color: #19314b !important;
+    font-family: 'DM Sans', sans-serif !important;
+    line-height: 1.65;
+}
+
+/* PAGE COLOR THEMES */
+
+body:has([py-click="add_member"]) {
+    background: #edf8f2 !important;
+}
+
+body:has([py-click="check_element"]) {
+    background: #f4f0fb !important;
+}
+
+body:has(h1) {
+    --accent: #2478bf;
+    --dark: #10243e;
+    --pale: #edf6fd;
+}
+
+body:has([py-click="add_member"]) {
+    --accent: #178064;
+    --dark: #123b36;
+    --pale: #e8f7f0;
+}
+
+body:has([py-click="check_element"]) {
+    --accent: #7955b7;
+    --dark: #2f254b;
+    --pale: #f0eafa;
+}
+
+body:has(h1):not(:has([py-click])) {
+    --accent: #a95080;
+    --dark: #332440;
+    --pale: #fdf0f6;
+    background: #fcf3f8 !important;
+}
+
+/* NAVIGATION */
+
+nav.navbar.bg-dark {
+    background: var(--dark, #10243e) !important;
+    box-shadow: 0 8px 25px #061b2b18;
+    padding: 14px clamp(14px, 3vw, 32px);
+}
+
+nav .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    min-height: 46px;
+    padding: 8px 11px;
+    border-radius: 12px;
+    background: var(--accent, #2478bf);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white !important;
+}
+
+nav .nav-link {
+    font: 700 13px 'DM Sans', sans-serif;
+    color: #dbe8f1 !important;
+    border-radius: 9px;
+    padding: 10px 15px !important;
+    transition: background .2s, color .2s;
+}
+
+nav .nav-link:hover,
+nav .nav-link[href]:focus-visible {
+    background: #ffffff18;
+    color: white !important;
+}
+
+nav .navbar-toggler {
+    border-color: #ffffff55;
+}
+
+/* MAIN CONTENT CONTAINER */
+
+body > div.container,
+body > div.form-control {
+    width: min(980px, calc(100% - 32px)) !important;
+    max-width: 980px !important;
+    margin: 45px auto 65px !important;
+    padding: 0 0 34px !important;
+    background: white !important;
+    color: #19314b !important;
+    border: 1px solid #e1e8ef !important;
+    border-radius: 20px !important;
+    box-shadow: 0 18px 54px #142b4517 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    overflow: hidden;
+}
+
+/* PAGE HEADINGS */
+
+body > div.container > h1,
+body > div.form-control > h1 {
+    margin: 0 !important;
+    padding: 48px 36px 45px;
+    color: #fff !important;
+    background: linear-gradient(
+        110deg,
+        var(--dark),
+        color-mix(in srgb, var(--dark) 75%, var(--accent))
+    );
+    font-size: clamp(30px, 4vw, 45px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.4px;
+}
+
+body > div.container > hr:first-of-type,
+body > div.form-control > hr:first-of-type {
+    border: 0;
+    margin: 0 36px 26px;
+    opacity: 0;
+}
+
+/* FORMS */
+
+body > div.container > form,
+body > div.form-control > form {
+    padding: 0 36px 5px;
+}
+
+body form label {
+    font: 700 14px 'DM Sans', sans-serif !important;
+    color: #30435a !important;
+    margin: 10px 0 6px;
+    display: inline-block;
+}
+
+body form input.form-control {
+    width: min(100%, 460px) !important;
+    margin: 0 !important;
+    padding: 13px 15px !important;
+    border: 1px solid #cedae6 !important;
+    border-radius: 10px !important;
+    background: #fbfcfe !important;
+    color: #19314b !important;
+    font: 500 15px 'DM Sans', sans-serif !important;
+    box-shadow: none !important;
+}
+
+body form input.form-control:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px #9ebddb3d !important;
+}
+
+/* BUTTONS */
+
+body form input[py-click] {
+    background: var(--accent) !important;
+    border: 0 !important;
+    color: white !important;
+    font: 800 14px 'DM Sans', sans-serif !important;
+    border-radius: 10px !important;
+    padding: 12px 28px !important;
+    margin-top: 7px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px #15394a1a;
+    transition: transform .15s, filter .15s;
+}
+
+body form input[py-click]:hover {
+    transform: translateY(-2px);
+    filter: brightness(.92);
+}
+
+/* RESULT DISPLAY */
+
+body > div.container > hr:not(:first-of-type),
+body > div.form-control > hr:not(:first-of-type) {
+    border-color: #dce7ef;
+    opacity: .5;
+    margin: 18px 36px;
+}
+
+#result,
+#results {
+    margin: 0 36px 5px !important;
+    padding: 20px !important;
+    min-height: 75px;
+    background: var(--pale) !important;
+    border-radius: 12px !important;
+    border-left: 5px solid var(--accent) !important;
+    font: 500 15px/1.8 'DM Sans', sans-serif !important;
+    color: #24394e !important;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+#result:empty::before,
+#results:empty::before {
+    content: 'Your result will appear here.';
+    color: #8495a6;
+}
+
+/* MEET THE CREATOR */
+
+body > div.container > h2 {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 22px 36px 14px;
+}
+
+body > div.container > .container {
+    width: calc(100% - 72px) !important;
+    margin: 0 36px 15px !important;
+    background: var(--pale) !important;
+    padding: 20px !important;
+    border-radius: 15px !important;
+    border: 1px solid #edd9e5;
+}
+
+body > div.container > .container > .container {
+    background: transparent !important;
+    display: flex !important;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 5px !important;
+}
+
+body > div.container > .container p {
+    font: 500 17px/1.8 'DM Sans', sans-serif !important;
+    color: #43374b;
+    margin: 0;
+}
+
+body > div.container > .container:first-of-type {
+    border-left: 5px solid #a95080 !important;
+}
+
+body > div.container > .container:last-of-type {
+    border-left: 5px solid #7c62bb !important;
+    background: #f3eefc !important;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 600px) {
+    body > div.container,
+    body > div.form-control {
+        width: calc(100% - 20px) !important;
+        margin: 22px auto 40px !important;
+    }
+
+    body > div.container > h1,
+    body > div.form-control > h1 {
+        padding: 34px 22px !important;
+    }
+
+    body > div.container > form,
+    body > div.form-control > form {
+        padding: 0 22px 5px;
+    }
+
+    #result,
+    #results {
+        margin: 0 22px !important;
+    }
+
+    body > div.container > h2 {
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+
+    body > div.container > .container {
+        width: calc(100% - 44px) !important;
+        margin: 0 22px 15px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
